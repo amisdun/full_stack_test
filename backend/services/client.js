@@ -15,11 +15,12 @@ export const createClient = async (clientDetails) => {
 export const updateClient = async (clientDetails) => {
 	const { _id, ...fieldsToUpdate } = clientDetails;
 	await documentExists(Client, { _id }, "resource not found");
-	return await Client.findByIdAndUpdate(
+	const updatedClient = await Client.findByIdAndUpdate(
 		_id,
 		{ ...fieldsToUpdate },
 		{ new: true },
-	);
+	).populate("providers");
+	return updatedClient.populate("providers").execPopulate();
 };
 
 export const getClients = async () => {

@@ -8,20 +8,20 @@ import { Providers } from "../models/providers.js";
 const providerFormatter = ["id", "name"];
 
 export const createProvider = async (Details) => {
-	const { name } = Details;
+	const { name, id } = Details;
 	await documentAlreadyExists(
 		Providers,
-		{ name },
-		"Provider Name Already Exists",
+		{ $or: [{ id }, { name }] },
+		"Provider Name or ID Already Exists",
 	);
 	return await Providers.create(Details);
 };
 
 export const updateProvider = async (Details) => {
-	const { id, ...fieldsToUpdate } = Details;
-	await documentExists(Providers, { id }, "resource not found");
+	const { _id, ...fieldsToUpdate } = Details;
+	await documentExists(Providers, { _id }, "resource not found");
 	return await Providers.findByIdAndUpdate(
-		id,
+		_id,
 		{ ...fieldsToUpdate },
 		{ new: true },
 	);
