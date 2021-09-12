@@ -35,10 +35,10 @@ export const getProviders = async () => {
 
 export const getProvider = async (id) => {
 	await documentExists(Providers, { id }, "resource not found");
-	return await Providers.findById(id, providerFormatter);
+	return await Providers.findOne({ id }, providerFormatter);
 };
 
 export const deleteProvider = async (id) => {
-	await documentExists(Providers, { _id: id }, "resource not found");
-	await Providers.findByIdAndDelete(id);
+	await documentExists(Providers, { id }, "resource not found");
+	await Providers.findOneAndDelete({ id });
 };
