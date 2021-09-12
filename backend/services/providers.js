@@ -39,6 +39,6 @@ export const getProvider = async (id) => {
 };
 
 export const deleteProvider = async (id) => {
-	await documentExists(Providers, { id }, "resource not found");
+	await documentExists(Providers, { _id: id }, "resource not found");
 	await Providers.findByIdAndDelete(id);
 };

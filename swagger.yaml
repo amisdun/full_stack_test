@@ -6,61 +6,61 @@ swagger: "2.0"
 info:
   version: "v1"
   title: REST API for 'The Clients Management App'
-  contact: 
-      name: "Abdul-Malik Musah"
-      email: "musah.abdulmalikgh@gmail.com" 
+  contact:
+    name: "Godspower Micheal"
+    email: "michealdunamis@gmail.com"
   description: |
-    This is a simple CRUD API application made with Express and documented with Swagger. 
+    This is a simple CRUD API application made with Express and documented with Swagger.
 host: localhost:8000
 basePath: /api
 
 paths:
   /clients:
-      get:
-        tags: [Clients]
-        summary: "Returns all clients"
-        produces:
-          - "application/json"
-        responses:
-          "200":
-            description: "Success response"
-          "405":
-            description: "Invalid input"
+    get:
+      tags: [Clients]
+      summary: "Returns all clients"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Success response"
+        "405":
+          description: "Invalid input"
 
-      post:
-        tags: [Clients]
-        summary: "Add a new client to the database"
-        consumes:
-          - "application/json"
-        produces:
-          - "application/json"
-        parameters:
-          - in: "body"
-            name: "clients"
-            description: "Client object that needs to be added to the store"
-            # schema:
-            #   $ref: "#/definitions/clients"
-        responses:
-          "400":
-            description: "Bad request"
-          "201":
-            description: "Success response"
-          "405":
-            description: "Invalid input"
-          "409":
-            description: "Client already exists"
+    post:
+      tags: [Clients]
+      summary: "Add a new client to the database"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "clients"
+          description: "Client object that needs to be added to the store"
+          # schema:
+          #   $ref: "#/definitions/clients"
+      responses:
+        "400":
+          description: "Bad request"
+        "201":
+          description: "Success response"
+        "405":
+          description: "Invalid input"
+        "409":
+          description: "Client already exists"
 
-  /clients/{id}: 
-      patch:
-        tags: 
+  /clients/{id}:
+    put:
+      tags:
         - "Clients"
-        summary: "Edit client"
-        description: "Update a single client by passing mongoose objectID"
-        consumes:
+      summary: "Edit client"
+      description: "Update a single client by passing mongoose objectID"
+      consumes:
         - application/json
-        produces:
+      produces:
         - application/json
-        parameters:
+      parameters:
         - name: "id"
           in: "path"
           description: "Mongoose objectID that need to pass in"
@@ -69,110 +69,110 @@ paths:
           name: clients
           description: "Client object that needs to be updated"
           schema:
-              $ref: "#/definitions/clients"
-        responses:
-          "200":
-            description: "successful operation"
-          "400":
-            description: "Bad request"
-          "404":
-            description: "id not found"
-      
-      get:
-        tags:
+            $ref: "#/definitions/clients"
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Bad request"
+        "404":
+          description: "id not found"
+
+    get:
+      tags:
         - "Clients"
-        summary: "Return single client"
-        description: "Get a single client by ID" 
-        produces:
+      summary: "Return single client"
+      description: "Get a single client by ID"
+      produces:
         - "application/json"
-        parameters:
+      parameters:
         - name: "id"
           in: "path"
           description: "ID of the client you want to retrieve"
           required: true
-        responses:
-          "200":
-            description: "Success operation"
-          "400":
-            description: "Invalid ID supplied"
-          "404":
-            description: "client not found"
+      responses:
+        "200":
+          description: "Success operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "client not found"
 
-      delete:
-        tags:
+    delete:
+      tags:
         - "Clients"
-        summary: "Delete client by ID"
-        description: "For valid response try mongoose Schema ObjectIDs. IDs with positive integer value will return error." 
-        produces:
+      summary: "Delete client by ID"
+      description: "For valid response try mongoose Schema ObjectIDs. IDs with positive integer value will return error."
+      produces:
         - "application/json"
-        parameters:
+      parameters:
         - name: "id"
           in: "path"
           description: "ID of the client that you want to be delete"
           required: true
-        responses:
-          "200":
-            description: "Success operation"
-          "400":
-            description: "Invalid ID supplied"
-          "404":
-            description: "client not found"
+      responses:
+        "200":
+          description: "Success operation"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "client not found"
 
   # providers
   /providers:
-      get:
-        tags: [Providers]
-        summary: "Returns all providers"
-        produces:
-          - "application/json"
-        responses:
-          "200":
-            description: "Success response"
-          "405":
-            description: "Invalid input"
+    get:
+      tags: [Providers]
+      summary: "Returns all providers"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Success response"
+        "405":
+          description: "Invalid input"
 
-      post:
-        tags: [Providers]
-        summary: "Add a new provider to the database"
-        consumes:
-          - "application/json"
-        produces:
-          - "application/json"
-        parameters:
-          - in: "body"
-            name: "index"
-            description: "Provider object that needs to be added to the store"
-            schema:
-              $ref: "#/definitions/providers"
-        responses:
-          "400":
-            description: "Bad request"
-          "200":
-            description: "Success response"
-          "405":
-            description: "Invalid input"
-          "409":
-            description: "Provider already exists"
-      
-  /providers/{id}: 
-    patch:
-      tags: 
-      - "Providers"
+    post:
+      tags: [Providers]
+      summary: "Add a new provider to the database"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "index"
+          description: "Provider object that needs to be added to the store"
+          schema:
+            $ref: "#/definitions/providers"
+      responses:
+        "400":
+          description: "Bad request"
+        "200":
+          description: "Success response"
+        "405":
+          description: "Invalid input"
+        "409":
+          description: "Provider already exists"
+
+  /providers/{id}:
+    put:
+      tags:
+        - "Providers"
       summary: "Edit Provider"
       description: "Update a single provider by passing mongoose objectID"
       consumes:
-      - application/json
+        - application/json
       produces:
-      - application/json
+        - application/json
       parameters:
-      - name: "id"
-        in: "path"
-        description: "Mongoose objectID that need to pass in"
-        required: true
-      - in: body
-        name: provider
-        description: "Provier object that needs to be updated"
-        schema:
+        - name: "id"
+          in: "path"
+          description: "Mongoose objectID that need to pass in"
+          required: true
+        - in: body
+          name: provider
+          description: "Provier object that needs to be updated"
+          schema:
             $ref: "#/definitions/providers"
       responses:
         "200":
@@ -181,19 +181,19 @@ paths:
           description: "Bad request"
         "404":
           description: "id not found"
-      
+
     get:
       tags:
-      - "Providers"
+        - "Providers"
       summary: "Return a single provider"
-      description: "Get single provider by ID" 
+      description: "Get single provider by ID"
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of the povider you want to retrieve"
-        required: true
+        - name: "id"
+          in: "path"
+          description: "ID of the povider you want to retrieve"
+          required: true
       responses:
         "200":
           description: "Success operation"
@@ -204,16 +204,16 @@ paths:
 
     delete:
       tags:
-      - "Providers"
+        - "Providers"
       summary: "Delete provider by ID"
-      description: "For valid response try mongoose Schema ObjectIDs. IDs with positive integer value will return error." 
+      description: "For valid response try mongoose Schema ObjectIDs. IDs with positive integer value will return error."
       produces:
-      - "application/json"
+        - "application/json"
       parameters:
-      - name: "id"
-        in: "path"
-        description: "ID of the provider that you want to be delete"
-        required: true
+        - name: "id"
+          in: "path"
+          description: "ID of the provider that you want to be delete"
+          required: true
       responses:
         "200":
           description: "Success operation"
@@ -221,8 +221,6 @@ paths:
           description: "Invalid ID supplied"
         "404":
           description: "Provider not found"
-            
-
 
 ############################################################################
 #                               Definitions                                #
@@ -246,9 +244,6 @@ definitions:
         items:
           type: string
 
-
-             
-  
   providers:
     type: object
     required:
@@ -259,4 +254,3 @@ definitions:
         type: string
       name:
         type: string
-           

@@ -4,6 +4,7 @@ const providersSchema = mongoose.Schema({
 	id: {
 		type: Number,
 		required: [true, "ID field is required"],
+		unique: true,
 	},
 	name: {
 		type: String,
