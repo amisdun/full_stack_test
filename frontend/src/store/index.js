@@ -94,8 +94,6 @@ export default new Vuex.Store({
 						const {
 							data: { response },
 						} = res;
-						console.log(payload.data);
-						console.log(payload.key);
 						commit("UPDATE_CLIENT", {
 							key: payload.key,
 							client: response,

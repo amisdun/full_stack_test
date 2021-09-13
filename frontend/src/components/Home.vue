@@ -1,6 +1,6 @@
 <template>
 	<div class="container-fluid">
-		<div class="row py-3 justify-content-center">
+		<div class="row py-3 justify-content-center"	>
 			<div class="col-md-10 py-4">
 				<h2>
 					Clients
