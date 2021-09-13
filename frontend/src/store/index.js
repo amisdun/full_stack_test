@@ -79,9 +79,9 @@ export default new Vuex.Store({
 			return new Promise((resolve, reject) => {
 				axios
 					.delete(`http://localhost:8000/api/clients/${data.id}`)
-					.then((response) => {
+					.then((res) => {
 						commit("DELETE_CLIENT", data.key);
-						resolve(response);
+						resolve(res);
 					})
 					.catch((err) => reject(err));
 			});
